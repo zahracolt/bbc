@@ -44,7 +44,7 @@ if ( stdlib.connector === 'ETH' || stdlib.connector === 'CFX' ) {
   await accMcintyre.tokenAccept(zahra.id);
 }
 
-await zahra.mint(accAlice, 100);
+await zahra.mint(accAlice, 15000);
 
 console.log('Launching...');
 const ctcAlice = accAlice.contract(backend);
@@ -58,7 +58,7 @@ await Promise.all([
     ...commonFunctions,
     tokenDetails : () => {
         //console.log(token.name.toString())
-        return [zahra.id, 100, time];
+        return [zahra.id, 15000, time];
     },
     aliceAdd : () => {
       console.log('Providing Bob\'s Address which is', stdlib.formatAddress(accBob));
@@ -75,6 +75,7 @@ await Promise.all([
         console.log(stdlib.formatAddress(accMcintyre), ' was not found in the whitelist')
     }
   }),
+
   backend.Bob(ctcBob, {
     ...commonFunctions,
     ready : (...v) => {
